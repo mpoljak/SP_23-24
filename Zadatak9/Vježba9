@@ -1,0 +1,374 @@
+#define _CRT_SECURE_NO_WARNINGS
+#define SUCCESS (0)
+#define ERROR (-1)
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+void red() {
+	printf("\033[1;31m");
+}
+
+void cyan() {
+	printf("\033[0;36m");
+}
+
+void white() {
+	printf("\033[0;37m");
+}
+void yellow() {
+	printf("\033[0;33m");
+}
+void green() {
+	printf("\033[0;32m");
+}
+void purple() {
+	printf("\033[0;35m");
+}
+
+
+struct Btree;
+typedef struct Btree* Position;
+typedef struct Btree {
+	int data;
+	Position left;
+	Position right;
+};
+
+Position AllocateMemory(int);
+Position InsertElement(int, Position);
+Position Replace(Position);
+Position printRandoms(Position);
+int Sum(Position);
+int LevelOrderPrint(Position);
+int height(Position);
+int Example();
+int ReplaceExample();
+void CurrentLevel(Position, int);
+int WriteinFile(Position, FILE*);
+int Smile(int);
+
+
+int main()
+{
+	Position root = NULL;
+	Position root2 = NULL;
+	Position root3 = NULL;
+	int x = 1;
+	char y = { 0 };
+	int element = NULL;
+	int example;
+	int lower = 10, upper = 90, count = 10;
+	int num=NULL;
+	int p= NULL;
+	int i = NULL;
+	int smile;
+
+	FILE* fp = fopen("predefined.txt", "w");
+	if (!fp)
+		printf("File does not exist.");
+
+	FILE* fp1 = fopen("replace.txt", "w");
+	if (!fp1)
+		printf("File does not exist.");
+
+	green();
+	printf("\n\t\t\t\tWELCOME TO MY PROGRAM!");
+	smile = Smile(i);
+	printf("\n");
+	while (x)
+	{
+		printf("\n  \n");
+		cyan();
+		printf("\t\t    ______________  PLEASE CHOOSE  ______________ \n");
+		white();
+		printf("\n                ---------------------------------------------------  \n");
+		red();
+		printf("\n             *     PRESS 1:");
+		white();
+		printf(" TO ADD PREDEFINED ELEMENTS              *");
+		red();
+		printf("\n             *     PRESS 2:");
+		white();
+		printf(" TO REPLACE PREDEFINED ELEMENTS          *");
+		red();
+		printf("\n             *     PRESS 3:");
+		white();
+		printf(" FOR RANDOM GENERATION                   *");
+		red();
+		printf("\n             *     PRESS 4:");
+		white();
+		printf(" TO EXIT THE PROGRAM.                    *");
+		printf("\n                ___________________________________________________\n");
+		printf("\n");
+		printf("\t\t\t ->");
+		cyan();
+		scanf("  %c", &y);
+		white();
+		switch (y)
+		{
+		case '1':
+			root = InsertElement(2, root);
+			root = InsertElement(5, root);
+			root = InsertElement(7, root);
+			root = InsertElement(8, root);
+			root = InsertElement(11, root);
+			root = InsertElement(1, root);
+			root = InsertElement(4, root);
+			root = InsertElement(2, root);
+			root = InsertElement(3, root);
+			root = InsertElement(7, root);
+			example = Example();
+			purple();
+			printf("\n\n\tLEVEL ORDER: \n\n");
+			LevelOrderPrint(root);
+			WriteinFile(root, fp);
+			break;
+
+		case '2':
+			ReplaceExample();
+			root3=Replace(root);
+			purple();
+			printf("\n\n\tLEVEL ORDER: \n\n");
+			LevelOrderPrint(root3);
+	        WriteinFile(root3, fp1);
+			break;
+
+
+		case '3':
+			purple();
+			printf("\n\tRANDOM NUMBERS");
+			white();
+			srand(time(NULL));
+            root2 = printRandoms(root2);
+			purple();
+			printf("\n\n\tLEVEL ORDER: \n\n");
+			LevelOrderPrint(root2);
+            break;
+
+		case '4':
+			exit(0);
+			break;
+
+		default:
+			red();
+			printf("\n    I'm sorry, you chose the wrong option.\n");
+			white();
+			printf("\n   TRY AGAIN!");
+			Smile(i);
+			break;
+		}
+	}
+	fclose(fp);
+	fclose(fp1);
+	return SUCCESS;
+}
+
+Position AllocateMemory(int element)
+{
+	Position newNode = (Position)malloc(sizeof(struct Btree));
+	if (!newNode)
+	{
+		printf("Problem s alokacijom memorije!\n");
+		return newNode;
+	}
+	newNode->data = element;
+	newNode->left = NULL;
+	newNode->right = NULL;
+	return newNode;
+
+}
+Position InsertElement(int element, Position root)
+{
+	if (!root)
+		return AllocateMemory(element);
+	else if (element < root->data)
+		root->right = InsertElement(element, root->right);
+	else if (element >= root->data)
+		root->left = InsertElement(element, root->left);
+	return root;
+}
+
+
+int LevelOrderPrint(Position root)
+{
+	int h = height(root);
+	int i;
+	for (i = 1; i <= h; i++) {
+		CurrentLevel(root, i);
+		printf("\n");
+	}
+}
+
+
+void CurrentLevel(Position root, int level)
+{
+	if (root == NULL)
+	{
+		return;
+	}
+
+	if (level == 1)
+
+	{
+		green();
+		printf(" ( %d ) ", root->data);
+
+	}
+
+	else if (level > 1)
+	{
+		CurrentLevel(root->left, level - 1);
+		CurrentLevel(root->right, level - 1);
+
+	}
+
+}
+
+int height(Position node)
+{
+	if (node == NULL)
+	{
+		return SUCCESS;
+	}
+	else
+	{
+		int lheight = height(node->left);
+		int rheight = height(node->right);
+		if (lheight > rheight)
+			return (lheight + 1);
+		else return (rheight + 1);
+	}
+}
+int Sum(Position root)
+{
+	int sum = 0;
+	int Rsum = 0;
+	int Lsum = 0;
+	if (root == NULL)
+	{
+		return sum;
+	}
+	if (root->right !=NULL)
+	{
+		Rsum = root->right->data + Sum(root->right);
+	}
+	if (root->left !=NULL)
+	{
+		Lsum = root->left->data + Sum(root->left);
+	}
+
+	return sum=Lsum+Rsum;
+}
+Position Replace(Position root)
+{
+	if (root != NULL)
+	{
+		root->data = Sum(root);
+		root->right = Replace(root->right);
+		root->left = Replace(root->left);
+	}
+	return root;
+}
+Position printRandoms(Position root)
+{
+	int lower=10;
+	int upper=90; 
+	int count=10;
+	int i;
+	for (i = 0; i < count; i++) {
+		int num = (rand() % (upper - lower + 1)) + lower;
+		printf("\t %d ", num);
+		root = InsertElement(num, root);
+	}
+	return root;
+}
+
+
+
+int WriteinFile(Position root, FILE* fp)
+{
+	if (root == NULL)
+		return 0;
+
+	WriteinFile(root->left, fp);
+	fprintf(fp, "%d ", root->data);
+	WriteinFile(root->right, fp);
+
+}
+
+
+int Example()
+
+{
+	int i;
+	cyan();
+	printf("\t *Visual representation of the binary tree of the predefined elements:  \n");
+	yellow();
+	printf("\t                                                         ENJOY!");
+	printf("\n");
+	red();
+	printf("\t                ______(%d)_____\n", 2);
+	white();
+	printf("\t               /              \\ \n");
+	purple();
+	printf("\t          __(%d)__             (%d)\n", 5, 1);
+	white();
+	printf("\t         /       \\                   \n");
+	cyan();
+	printf("\t      _(%d)       (%d)_                 \n ", 7, 4);
+	white();
+	printf("\t     /               \\                \n");
+	green();
+	printf("\t  _(%d)_             _(%d)             \n", 8, 2);
+	white();
+	printf("\t /     \\           /                      \n");
+	yellow();
+	printf("\t(%d)   (%d)       (%d) \n", 11, 7, 3);
+	white();
+	return;
+
+}
+
+int ReplaceExample()
+
+{
+	int i;
+	cyan();
+	printf("\n\t *Visual representation of the replaced binary tree of predefined elements\n");
+	yellow();
+	printf("\t                                                         ENJOY!");
+	printf("\n");
+	red();
+	printf("\t                ______(%d)_____\n", 48);
+	white();
+	printf("\t               /               \\ \n");
+	purple();
+	printf("\t          __(%d)__             (%d)\n", 42,0);
+	white();
+	printf("\t         /        \\                   \n");
+	cyan();
+	printf("\t      _(%d)       (%d)_                 \n ",26,5);
+	white();
+	printf("\t     /                \\                \n");
+	green();
+	printf("\t  _(%d)_             _(%d)             \n", 18,3);
+	white();
+	printf("\t /      \\           /                      \n");
+	yellow();
+	printf("\t(%d)     (%d)       (%d) \n", 0,0,0);
+	white();
+	return;
+
+}
+
+int Smile(int i)
+{
+	for (i = 0; i <= 0; i++)
+	{
+		yellow();
+		printf("  %c", 1);
+	}
+	return SUCCESS;
+}
