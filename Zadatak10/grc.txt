@@ -1,0 +1,97 @@
+Athens	664046
+Thessaloniki	354290
+Patra	168034
+Piraeus	163688
+Larisa	144651
+Peristeri	139981
+Irakleion	137154
+Kallithea	100641
+Acharnes	99346
+Kalamaria	91617
+Nikaia	89380
+Glyfada	87305
+Volos	86048
+Ilion	84793
+Ilioupoli	78153
+Keratsini	77077
+Khalandrion	74192
+Nea Smyrni	73076
+Marousi	72333
+Agios Dimitrios	71294
+Zografos	71026
+Aigaleo	69946
+Nea Ionia	67134
+Ioannina	65574
+Palaio Faliro	64021
+Korydallos	63445
+Trikala	61653
+Vyronas	61308
+Galatsi	59345
+Chalkida	59125
+Petroupolis	58979
+Serres	58287
+Rodos	56128
+Kalamata	54100
+Kavala	54027
+Chania	53910
+Katerini	53293
+Alexandroupoli	52979
+Lamia	52006
+Irakleio	49642
+Xanthi	48221
+Kifisia	47332
+Agrinio	46899
+Chaidari	45642
+Komotini	45631
+Sykies	44955
+Drama	44823
+Veroia	44464
+Alimos	41,720
+Polichni	39,765
+Kozani	36,481
+Thivai	36,477
+Agioi Anargyroi	34,168
+Argyroupoli	34,097
+Ano Liosia	33,565
+Karditsa	32,789
+Nea Ionia	32,661
+Rethymno	32,468
+Cholargos	30,840
+Vrilissia	30,741
+Aspropyrgos	30,251
+Korinthos	30,176
+Ptolemaida	30,045
+Gerakas	29,939
+Metamorfosi	29,891
+Voula	28,364
+Kamateron	28,361
+Mytilene	28,322
+Giannitsa	27,817
+Neapoli	27,084
+Corfu	27,003
+Tripoli	26,561
+Agia Varvara	26,550
+Kaisariani	26,370
+Nea Filadelfeia	25,734
+Moskhaton	25,441
+Perama	25,389
+Salamina	25,370
+Elefsina	24,910
+Chios	23,953
+Pylaia	23,494
+Megara	23,456
+Kilkis	22,914
+Dhafni	22,913
+Melissia	22,741
+Pyrgos	22,399
+Argos	22,209
+Arta	21,895
+Livadeia	21,492
+Artemida	21,488
+Pefki	21,352
+Aigio	20,422
+Naousa	19,887
+Kos	19,244
+Koropi	19,164
+Edessa	18,669
+Florina	17,686

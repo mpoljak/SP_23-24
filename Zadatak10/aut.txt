@@ -1,0 +1,11 @@
+Vienna  	1691468	
+Graz        222326
+Linz        204846	
+Salzburg    153377	
+Innsbruck   132493	
+Klagenfurt  90610
+Villach     58882	
+Dornbirn    49278 
+Steyr       38331
+Feldkirch   33420
+Bregenz     29471	

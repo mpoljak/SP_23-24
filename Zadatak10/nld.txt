@@ -1,0 +1,20 @@
+Amsterdam	825 080
+Rotterdam	631 155
+The Hague	501 725
+Utrecht	316 448
+Eindhoven	217 120
+Tilburg	206 234
+Almere	193 303
+Groningen	192 735
+Breda	175 565
+Nijmegen	165 127
+Enschede	157 943
+Apeldoorn	157 057
+Haarlem	151 927
+Arnhem	149 272
+Amersfoort	148 404
+Hertogenbosch	141 906
+Zoetermeer	122 300
+Zwolle	121 602
+Maastricht	121 010
+Dordrecht	118 902

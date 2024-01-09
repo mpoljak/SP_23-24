@@ -1,0 +1,10 @@
+Istanbul	14804116
+Ankara	3517182
+Izmir	2500603
+Bursa	1412701
+Adana	1248988
+Gaziantep	1065975
+Konya	875530
+Cankaya	792189
+Antalya	758188
+Bagcilar	749024
