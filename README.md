@@ -1,4 +1,4 @@
-# SP_23-24
+# SP_22-23
 
 1. Napisati program koji prvo pročita koliko redaka ima datoteka, tj. koliko ima studenata
 zapisanih u datoteci. Nakon toga potrebno je dinamički alocirati prostor za niz struktura
